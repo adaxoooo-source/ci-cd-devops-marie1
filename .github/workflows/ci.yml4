@@ -1,0 +1,19 @@
+name: CI Pipeline ci-cd-devops-marie
+
+on:
+  push:
+    branches: [ main, dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check index.html
+        run: test -f app/index.html
+
+      - name: CI success
+        run: echo "CI ci-cd-devops-marie OK"
